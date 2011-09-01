@@ -7,7 +7,6 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 gem 'jquery-rails', '>= 0.2.6'
-gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
