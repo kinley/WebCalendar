@@ -1,0 +1,18 @@
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :date => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :date => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+  <% calendar_for @events, :year => @date.year, :month => @date.month, :first_day_of_week => 1 do |calendar| %>
+  	<%= calendar.head('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday') %>
+    <% calendar.day(:day_method => :date) do |date, events| %>
+      <%= link_to date.day, day_url(date) %>
+      <ul>
+        <% for event in events %>
+          <li><%= link_to h(event.title), event %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

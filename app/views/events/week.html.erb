@@ -1,0 +1,21 @@
+<div id="weekly_plan">
+	<% @dates.each do |day| %>
+		<% if day.wday == 0 %>
+			<div class="weekday last">
+		<% else %>
+			<div class="weekday">
+		<% end %>
+		<h3 class="header">
+			<span class="title"><%= Event.wday_to_s(day.wday) %></span> 
+			(<%= link_to day.strftime("%d.%m.%Y"), day_url(day) %>)
+		</h3>
+		<ul>
+		<% @events.select {|item| item.date.to_s.index(day.strftime("%Y-%m-%d"))}.each do |event| %>
+			<li><%= event.date.strftime("%H:%M") %> | <%= event.title %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+	</ul>
+</div>
+<div class="clear"/>

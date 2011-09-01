@@ -1,0 +1,19 @@
+<h2>В этот великий день (<%= @date %>) Тебя ждут следующие дела:</h2>
+
+<div id = "daily_plan">
+<table>
+<tr>
+	<th>Время</th>
+	<th>Событие</th>
+</tr>
+<% if @events.empty? %>
+	<tr><td colspan="2">В твоем расписании свободный день?!</td></tr>
+<% end %>
+<% @events.each do |event| %>
+		<tr>
+			<td class="time"><%= event.date.strftime("%H:%M") %></td>
+			<td><%= event.title %></td>
+		</tr>
+<% end %>
+</table>
+</div>

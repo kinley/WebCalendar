@@ -1,0 +1,11 @@
+<%= link_to "Home", root_path %> |
+<%= link_to "Events", events_path %> |
+<%= link_to "Add event", new_event_path %> <br/>
+
+<% if @date %>
+<p class="menu_link">
+<%= link_to "View month", month_url(@date) %> 
+<%= link_to "View week", week_path(@date) %> 
+<%= link_to "View day", day_path(@date) %>
+</p>
+<% end %>

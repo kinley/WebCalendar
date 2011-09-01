@@ -1,0 +1,244 @@
+body {
+  background: #fff url(../images/bg-body.jpg) repeat;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+body {
+  background-color: #4B7399;
+}
+
+.menu_link {
+	padding-top: 7px;
+	padding-bottom: 15px;
+	padding-right: 0;
+	overflow: hidden;
+	width: 200px;
+}
+.menu_link a {
+	text-decoration: none;
+	color: white;
+	font-size: 14px;
+	display: block;
+	float: right;
+	background:gray;
+	margin: 0 2px;
+	padding: 4px 3px 3px;
+	width:50px;
+	text-align: center;
+}
+.menu_link a:hover{
+	background: #76c406;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.clear {
+  clear: both;
+}
+
+
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+#calendar table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%;
+}
+
+#calendar td {
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar .today {
+  background-color: #D7F2FF;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ============= */
+
+#daily_plan table {
+	margin-left: 130px;
+  border-collapse: collapse;
+  width: 500px;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#daily_plan td,
+#daily_plan th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#daily_plan th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+}
+
+#daily_plan td {
+  height: 80px;
+  font-size: 16px;
+}
+
+#daily_plan .time {
+  width: 70px;
+}
+
+/* ========== */
+
+#weekly_plan {
+	font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+}
+
+#weekly_plan ul {
+	list-style-type:none;
+	margin:0; 
+	padding-left:24px; 
+	background: white;
+}
+
+#weekly_plan ul last {
+	float: none;
+}
+
+#weekly_plan {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  width: 300px;
+}
+
+#weekly_plan div {
+	/*float: left;*/
+}
+
+
+#weekly_plan .header{
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  background: #DDD;
+  color: #666;
+  text-align: center;
+}
