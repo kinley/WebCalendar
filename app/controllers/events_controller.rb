@@ -2,14 +2,13 @@ class EventsController < ApplicationController
   
   def calendar
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-  	@events = Event.all
+  	@events = Event.generate_with_repeated(@date)
   end
   
   def week
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @dates = (@date.beginning_of_week..@date.end_of_week).to_a
   	@events = Event.find_all_by_week(@date)
-  	#@events = Event.all
   end
   
   def day
@@ -59,9 +58,14 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-
+		@wrepeats = params[:wday].first.to_hash if params[:wday]
+		@mrepeats = params[:mday].first.to_hash if params[:mday]
+		
     respond_to do |format|
       if @event.save
+      	@wrepeats.each_value { |val| @event.repeats.new(:repeating_type => 1, :repeating_day => val).save } if @wrepeats
+      	@mrepeats.each_value { |val| @event.repeats.new(:repeating_type => 2, :repeating_day => val).save } if @mrepeats
+      	
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else

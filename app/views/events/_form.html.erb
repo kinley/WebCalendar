@@ -20,6 +20,19 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  <div>
+  	<% [1,2,3,4,5,6,0].each do |i| %>
+  		<%= check_box_tag("wday[][#{i}]", i, false)%>
+			<% hidden_field_tag "wday[][#{i}]", 0 %>
+  		<%= f.label Event.wday_to_s(i) %><br/>
+  	<% end %>
+  </div>
+  <div>
+  	<% 31.times do |i| %>
+  		<%= check_box_tag("mday[][#{i+1}]", i+1, false)%>
+  		<%= f.label i+1 %>
+  	<% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

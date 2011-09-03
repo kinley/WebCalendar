@@ -10,7 +10,7 @@
 			(<%= link_to day.strftime("%d.%m.%Y"), day_url(day) %>)
 		</h3>
 		<ul>
-		<% @events.select {|item| item.date.to_s.index(day.strftime("%Y-%m-%d"))}.each do |event| %>
+		<% Event.find_by_wday(@events, day).each do |event| %>
 			<li><%= event.date.strftime("%H:%M") %> | <%= event.title %></li>
 		<% end %>
 		</ul>
@@ -19,3 +19,18 @@
 	</ul>
 </div>
 <div class="clear"/>
+
+
+<table>
+<tr><th colspan="3">Список всех событий на эту неделю (для сверки)</th></tr>
+<% @events.each do |i| %>
+	<tr>
+		<td><%= i.title %></td>
+		<td><%= i.date %></td>
+		<td><% i.repeats.each do |i| %>
+					<%= i.repeating_type %>|<%= i.repeating_day %>||
+				<% end %>
+		</td>
+	</tr>
+<% end %>
+</table>

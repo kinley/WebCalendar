@@ -16,3 +16,17 @@
     <% end %>
   <% end %>
 </div>
+
+<table>
+<tr><th colspan="3">Список всех событий на этот месяц (для сверки)</th></tr>
+<% @events.each do |i| %>
+	<tr>
+		<td><%= i.title %></td>
+		<td><%= i.date %></td>
+		<td><% i.repeats.each do |i| %>
+					<%= i.repeating_type %>|<%= i.repeating_day %>||
+				<% end %>
+		</td>
+	</tr>
+<% end %>
+</table>
