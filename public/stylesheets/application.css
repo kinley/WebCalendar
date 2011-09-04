@@ -35,8 +35,13 @@ body {
 	width:50px;
 	text-align: center;
 }
-.menu_link a:hover{
+.menu_link .selected{
 	background: #76c406;
+}
+
+.menu_link a:hover{
+	background: #D7F2FF;
+    color: black;
 }
 
 #container {

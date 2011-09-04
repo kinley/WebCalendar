@@ -3,9 +3,10 @@
 <%= link_to "Add event", new_event_path %> <br/>
 
 <% if @date %>
+<span id="selected" style="display: none;"><%= @selected %></span>
 <p class="menu_link">
-<%= link_to "View month", month_url(@date) %> 
-<%= link_to "View week", week_path(@date) %> 
-<%= link_to "View day", day_path(@date) %>
+<%= link_to "View month", month_url(@date), :id => "month" %>
+<%= link_to "View week", week_path(@date), :id => "week" %>
+<%= link_to "View day", day_path(@date), :id => "day" %>
 </p>
 <% end %>

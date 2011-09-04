@@ -3,17 +3,20 @@ class EventsController < ApplicationController
   def calendar
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   	@events = Event.generate_with_repeated(@date)
+    @selected = "month"
   end
   
   def week
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @dates = (@date.beginning_of_week..@date.end_of_week).to_a
   	@events = Event.find_all_by_week(@date)
+    @selected = "week"
   end
   
   def day
   	@date = params[:date] ? Date.parse(params[:date]) : Date.today
   	@events = Event.find_all_by_day(@date)
+    @selected = "day"
   end
   
   # GET /events

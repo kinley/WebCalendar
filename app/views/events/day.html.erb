@@ -1,4 +1,10 @@
-<h2>В этот великий день (<%= @date %>) Тебя ждут следующие дела:</h2>
+<h2>
+  В этот великий день (
+  <%= link_to "<", :date => (@date - 1.day).strftime("%Y-%m-%d") %>
+  <%= @date %>
+  <%= link_to ">", :date => (@date + 1.day).strftime("%Y-%m-%d") %>) Тебя ждут следующие дела:
+</h2>
+
 
 <div id = "daily_plan">
 <table>

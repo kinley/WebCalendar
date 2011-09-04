@@ -21,17 +21,31 @@
     <%= f.text_field :title %>
   </div>
   <div>
+    <%= check_box_tag("repeated", 0, false)%>
+    Сделать повторяющимся<br/>
+    <div id="repeating_type">
+        <%= radio_button_tag("r_type", 1) %> каждую неделю <br/>
+        <%= radio_button_tag("r_type", 2) %> каждый месяц <br/>
+    </div>
+    <div id="wdays">
+    <table><tr>
+      <td>
   	<% [1,2,3,4,5,6,0].each do |i| %>
   		<%= check_box_tag("wday[][#{i}]", i, false)%>
 			<% hidden_field_tag "wday[][#{i}]", 0 %>
   		<%= f.label Event.wday_to_s(i) %><br/>
   	<% end %>
-  </div>
-  <div>
+      </td></tr></table>
+    </div>
+    <div id="mdays">
+    <table><tr>
   	<% 31.times do |i| %>
+        <% if (i % 10 == 0) && (i/10 < 3) %><td><% end %>
   		<%= check_box_tag("mday[][#{i+1}]", i+1, false)%>
-  		<%= f.label i+1 %>
+  		<%= f.label i+1 %><br/>
+        <% if (i % 10 == 9) && (i/10 < 2) %></td><% end %>
   	<% end %>
+    </td></tr></table></div>
   </div>
   <div class="actions">
     <%= f.submit %>

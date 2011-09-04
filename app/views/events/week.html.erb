@@ -1,3 +1,5 @@
+<%= link_to "<", :date => (@date - 7.days).strftime("%Y-%m-%d") %>
+<%= link_to ">", :date => (@date + 7.days).strftime("%Y-%m-%d") %>
 <div id="weekly_plan">
 	<% @dates.each do |day| %>
 		<% if day.wday == 0 %>

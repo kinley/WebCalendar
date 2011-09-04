@@ -9,9 +9,13 @@
     <% calendar.day(:day_method => :date) do |date, events| %>
       <%= link_to date.day, day_url(date) %>
       <ul>
-        <% for event in events %>
+        <% for event in events.take(5) %>
           <li><%= link_to h(event.title), event %></li>
         <% end %>
+        <% if events.size > 5 %>
+            <br/>
+            <li><i><%= link_to "more for this day...", day_url(date)%></i></li>
+          <% end %>
       </ul>
     <% end %>
   <% end %>

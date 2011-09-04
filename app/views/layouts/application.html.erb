@@ -2,8 +2,12 @@
 <html>
 <head>
   <title>Calendar</title>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application", "weekly" %>
-    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails" %>
+  <% stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+  <%= stylesheet_link_tag "application" %>
+  <% javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
+                             "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails",
+                             "jquery1.5.2.min"%>
+  <%= javascript_include_tag "jquery1.5.2.min", "application", "rails"%>
   <%= csrf_meta_tag %>
 </head>
 <body>

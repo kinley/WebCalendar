@@ -58,9 +58,9 @@ class Event < ActiveRecord::Base
 	def self.find_by_wday(events, day)
 		events.select{|item| (item.date.to_s.index(day.strftime("%Y-%m-%d")) ||
 			(!item.repeats.empty? && 
-				!item.repeats.find_all{|item| 
-					item.repeating_type == 1 && item.repeating_day == day.wday ||
-					item.repeating_type == 2 && item.repeating_day == day.day}.empty?))}
+				!item.repeats.find_all{|r_item|
+					r_item.repeating_type == 1 && r_item.repeating_day == day.wday && item.date < day ||
+					r_item.repeating_type == 2 && r_item.repeating_day == day.day && item.date < day}.empty?))}
 	end
 	
 	def self.generate_with_repeated(string)
@@ -73,9 +73,9 @@ class Event < ActiveRecord::Base
 		
 		events.each do |event|
 			event.repeats.each do |r|
-				r_days = (m_begin..m_end).select{ |d| 
-					((r.repeating_type == 1 && d.wday == r.repeating_day) ||
-					 (r.repeating_type == 2 && d.day == r.repeating_day)) }
+				r_days = (m_begin..m_end).select{ |d|
+					((r.repeating_type == 1 && d.wday == r.repeating_day && event.date.to_date < d.to_date) ||
+					 (r.repeating_type == 2 && d.day == r.repeating_day && event.date.to_date < d.to_date)) }
 				temp_events = []
 				r_days.each do |item|
 					e = Event.find(r.event_id)
